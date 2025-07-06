@@ -6,8 +6,8 @@ services:
   - type: web
     name: python-monorepo
     runtime: python
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn job_portal_api.wsgi:application"
+    buildCommand: "pip install -r job_portal_api/requirements.txt"
+    startCommand: "cd job_portal_api && gunicorn job_portal_api.wsgi:application"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
